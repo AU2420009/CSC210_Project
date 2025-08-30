@@ -1,10 +1,12 @@
 import java.util.Scanner;
 
-// Hashtbl for search
-// AVL tree? for add/remove
-// Queues for borrow (this is ez)
-// Branch: graph/tree with A*
-// Budget: ????
+/* Algorithms for features:
+- Hashtbl for search
+-  AVL tree for add/remove?
+-  Queues for borrow 
+-  Branch: graph/tree with A*
+-  Budget: ????
+*/
 
 public class Main
 {
@@ -12,17 +14,21 @@ public class Main
  {
    Scanner sc = new Scanner(System.in);
    int option = 6;
-   System.out.print("Welcome to the library. Features available are as follows:\n1. Book Search\n2. Manage Books\n3. Borrow book/check borrow records\n4. Branch transport\n5. Book purchase calculator\nType in the feature number to go to that feature, or anything else to exit.\n");
+   System.out.print("Welcome to the library management system.\nFeatures available are as follows:\n1. Book Search\n2. Manage Books\n3. Borrow book/check borrow records\n4. Branch transport\n5. Book purchase calculator\n6. Exit\n");
    while(true){
-    System.out.print("Select feature: ");
+    System.out.print("Select an option number: ");
+
+    // handle invalid (non-int) input 
     try{
      option = sc.nextInt();
     }
     catch(Exception e) {
-     System.out.println("Have a nice day!");
-     sc.close();
-     System.exit(0);  
+     System.out.println("Invalid input. Options available:");
+     System.out.print("1. Book Search\n2. Manage Books\n3. Borrow book/check borrow records\n4. Branch transport\n5. Book purchase calculator\n6. Exit\n");
+     sc.nextLine(); // consume invalid input
+     continue;
     }
+
     switch(option){
      case 1:
         System.out.println("Book Search");             
@@ -39,10 +45,13 @@ public class Main
      case 5:
         System.out.println("Calculate optimal purchase from budget");             
         break;
-     default:
+     case 6:
         System.out.println("Have a nice day!");
         sc.close();
         System.exit(0);  
+     default: // any other int
+        System.out.println("Invalid input. Options available:");
+        System.out.print("1. Book Search\n2. Manage Books\n3. Borrow book/check borrow records\n4. Branch transport\n5. Book purchase calculator\n6. Exit\n");
     }
   }
  }
