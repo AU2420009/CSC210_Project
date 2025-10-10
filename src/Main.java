@@ -204,14 +204,15 @@ public class Main {
                        tree.root = tree.insert(tree.root, "Atomic Habits");
                        tree.root = tree.insert(tree.root, "The Subtle Art of Not Giving a F*ck");
 
-                       System.out.println("Please enter a title to search for: ");
+                       System.out.println("Please enter a title to search for: \n");
                        String userInput = sc.nextLine();
                        AVLTree.AVLNode result = tree.Search(userInput);
     
                        if(result != null){System.out.println("Found in library: " + result.title);} else {System.out.println("Title not found.");}
 
-                       System.out.println("Lexicographic tree traversal:");
-                       tree.alphabeticTraverse(tree.root); 
+                       System.out.println("Lexicographic tree traversal:\n");
+                       tree.alphabeticTraverse(tree.root);
+                        System.out.println("");
                        
 /* TODO: fully implement Prefix-based search
                        System.out.println("\nPrefix Search: 'bo'");
@@ -223,7 +224,7 @@ public class Main {
                     break;
 
                 case 6:
-                    System.out.println("Calculate optimal purchase from budgetnSorry, this feature has not been implemented yet!");
+                    System.out.println("Calculate optimal purchase from budget\nSorry, this feature has not been implemented yet!");
                     break;
 
                 case 7:
