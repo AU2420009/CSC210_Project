@@ -1,9 +1,10 @@
-class AVLTree 
+package datastruc;
+public class AVLTree 
 {
 
     public class AVLNode 
     {
-     String title;
+     public String title;
      int height;
      AVLNode left;
      AVLNode right;
@@ -133,7 +134,7 @@ class AVLTree
           }
      }
 
-    void alphabeticTraverse(AVLNode n) 
+    public void alphabeticTraverse(AVLNode n) 
      { 
          if (n != null) 
           { 

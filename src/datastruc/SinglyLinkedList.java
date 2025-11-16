@@ -1,3 +1,5 @@
+package datastruc;
+
 class Node {
     String title;
     Node next;
@@ -8,11 +10,11 @@ class Node {
     }
 }
 
-class SinglyLinkedList {
-    Node head;
+public class SinglyLinkedList {
+    public Node head;
 
     // Insert at end
-    void insert(String title) {
+    public void insert(String title) {
         Node newNode = new Node(title);
         if (head == null) {
             head = newNode;
@@ -24,7 +26,7 @@ class SinglyLinkedList {
     }
 
     // Search a node
-    boolean search(String key) {
+    public boolean search(String key) {
         Node temp = head;
         while (temp != null) {
             if (temp.title.equalsIgnoreCase(key)) return true;
@@ -34,7 +36,7 @@ class SinglyLinkedList {
     }
 
     // Print list
-    void display() {
+    public void display() {
         Node temp = head;
         while (temp != null) {
             System.out.print(temp.title + " -> ");
@@ -42,5 +44,27 @@ class SinglyLinkedList {
         }
         System.out.println("NULL");
     }
+
+    public boolean delete(String key) {
+        if (head == null) return false;
+
+        // If deleting the head
+        if (head.title.equalsIgnoreCase(key)) {
+            head = head.next;
+            return true;
+        }
+
+        Node temp = head;
+        while (temp.next != null) {
+            if (temp.next.title.equalsIgnoreCase(key)) {
+                temp.next = temp.next.next;  // unlink node
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false; // not found
+    }
+
+
 }
 
